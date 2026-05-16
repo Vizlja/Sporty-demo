@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-insert-sample-bets
+      author: sporty-demo
+      changes:
+        - insert:
+            tableName: bets
+            columns:
+              - column: { name: bet_id, valueNumeric: 1 }
+              - column: { name: user_id, valueNumeric: 101 }
+              - column: { name: event_id, valueNumeric: 1 }
+              - column: { name: event_market_id, valueNumeric: 1 }
+              - column: { name: event_winner_id, valueNumeric: 1 }
+              - column: { name: bet_amount, valueNumeric: 50.00 }
+        - insert:
+            tableName: bets
+            columns:
+              - column: { name: bet_id, valueNumeric: 2 }
+              - column: { name: user_id, valueNumeric: 102 }
+              - column: { name: event_id, valueNumeric: 1 }
+              - column: { name: event_market_id, valueNumeric: 1 }
+              - column: { name: event_winner_id, valueNumeric: 3 }
+              - column: { name: bet_amount, valueNumeric: 25.00 }
+        - insert:
+            tableName: bets
+            columns:
+              - column: { name: bet_id, valueNumeric: 3 }
+              - column: { name: user_id, valueNumeric: 103 }
+              - column: { name: event_id, valueNumeric: 2 }
+              - column: { name: event_market_id, valueNumeric: 1 }
+              - column: { name: event_winner_id, valueNumeric: 4 }
+              - column: { name: bet_amount, valueNumeric: 100.00 }
+        - insert:
+            tableName: bets
+            columns:
+              - column: { name: bet_id, valueNumeric: 4 }
+              - column: { name: user_id, valueNumeric: 104 }
+              - column: { name: event_id, valueNumeric: 2 }
+              - column: { name: event_market_id, valueNumeric: 1 }
+              - column: { name: event_winner_id, valueNumeric: 7 }
+              - column: { name: bet_amount, valueNumeric: 75.50 }

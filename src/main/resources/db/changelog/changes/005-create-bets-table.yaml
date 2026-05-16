@@ -1,0 +1,76 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-create-bets-table
+      author: sporty-demo
+      changes:
+        - createTable:
+            tableName: bets
+            columns:
+              - column:
+                  name: bet_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: event_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: event_market_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: event_winner_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bet_amount
+                  type: DECIMAL(19, 2)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: bets
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_bets_user_id
+        - addForeignKeyConstraint:
+            baseTableName: bets
+            baseColumnNames: event_id
+            referencedTableName: events
+            referencedColumnNames: id
+            constraintName: fk_bets_event_id
+        - addForeignKeyConstraint:
+            baseTableName: bets
+            baseColumnNames: event_market_id
+            referencedTableName: markets
+            referencedColumnNames: id
+            constraintName: fk_bets_event_market_id
+        - addForeignKeyConstraint:
+            baseTableName: bets
+            baseColumnNames: event_winner_id
+            referencedTableName: teams
+            referencedColumnNames: id
+            constraintName: fk_bets_event_winner_id
+        - createIndex:
+            indexName: idx_bets_event_id
+            tableName: bets
+            columns:
+              - column:
+                  name: event_id
+        - sql:
+            sql: >
+              ALTER TABLE bets ADD CONSTRAINT chk_bet_id_positive CHECK (bet_id > 0);
+              ALTER TABLE bets ADD CONSTRAINT chk_bets_user_id_positive CHECK (user_id > 0);
+              ALTER TABLE bets ADD CONSTRAINT chk_bets_event_id_positive CHECK (event_id > 0);
+              ALTER TABLE bets ADD CONSTRAINT chk_bets_event_market_id_positive CHECK (event_market_id > 0);
+              ALTER TABLE bets ADD CONSTRAINT chk_bets_event_winner_id_positive CHECK (event_winner_id > 0);

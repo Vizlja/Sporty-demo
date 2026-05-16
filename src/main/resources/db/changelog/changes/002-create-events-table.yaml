@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-events-table
+      author: sporty-demo
+      changes:
+        - createTable:
+            tableName: events
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - sql:
+            sql: ALTER TABLE events ADD CONSTRAINT chk_events_id_positive CHECK (id > 0)

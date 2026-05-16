@@ -1,0 +1,90 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-insert-reference-data
+      author: sporty-demo
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, valueNumeric: 101 }
+              - column: { name: name, value: Ivan }
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, valueNumeric: 102 }
+              - column: { name: name, value: Bob }
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, valueNumeric: 103 }
+              - column: { name: name, value: Carol }
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id, valueNumeric: 104 }
+              - column: { name: name, value: Dave }
+        - insert:
+            tableName: events
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: name, value: Dinamo Zagreb vs HNK Hajduk Split }
+        - insert:
+            tableName: events
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: name, value: HNK Rijeka vs NK Osijek }
+        - insert:
+            tableName: markets
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: name, value: Croatian League }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 1 }
+              - column: { name: name, value: Dinamo Zagreb }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 2 }
+              - column: { name: name, value: HNK Gorica }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 3 }
+              - column: { name: name, value: HNK Hajduk Split }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 4 }
+              - column: { name: name, value: HNK Rijeka }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 5 }
+              - column: { name: name, value: NK Istra 1961 }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 6 }
+              - column: { name: name, value: NK Lokomotiva }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 7 }
+              - column: { name: name, value: NK Osijek }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 8 }
+              - column: { name: name, value: NK Slaven Belupo }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 9 }
+              - column: { name: name, value: "NK Varaždin" }
+        - insert:
+            tableName: teams
+            columns:
+              - column: { name: id, valueNumeric: 10 }
+              - column: { name: name, value: HNK Vukovar 1991 }

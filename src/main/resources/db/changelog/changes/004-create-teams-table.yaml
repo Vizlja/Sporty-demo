@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-teams-table
+      author: sporty-demo
+      changes:
+        - createTable:
+            tableName: teams
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - sql:
+            sql: ALTER TABLE teams ADD CONSTRAINT chk_teams_id_positive CHECK (id > 0)
