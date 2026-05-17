@@ -30,6 +30,8 @@ services:
     ports:
       - "10911:10911"
       - "10909:10909"
+    volumes:
+      - ./docker/rocketmq/broker.conf:/home/rocketmq/rocketmq-5.3.1/conf/broker.conf
     environment:
       NAMESRV_ADDR: rocketmq-namesrv:9876
-    command: sh mqbroker -n rocketmq-namesrv:9876
+    command: sh mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/rocketmq-5.3.1/conf/broker.conf

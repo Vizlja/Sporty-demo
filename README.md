@@ -29,6 +29,13 @@ docker compose up -d
 
 Wait until Kafka (`localhost:9092`) and RocketMQ NameServer (`localhost:9876`) are up.
 
+If RocketMQ send fails with `connect to 172.x.x.x:10911 failed`, the broker was advertising its Docker-internal IP. This project sets `brokerIP1 = 127.0.0.1` in `docker/rocketmq/broker.conf` so clients on your laptop use the published port. Recreate the stack after pulling changes:
+
+```bash
+docker compose down
+docker compose up -d
+```
+
 ### 2. Run the application
 
 ```bash
