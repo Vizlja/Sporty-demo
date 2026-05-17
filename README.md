@@ -142,6 +142,8 @@ mvn clean package
 java -jar target/sporty-demo-1.0.0-SNAPSHOT.jar
 ```
 
+Tests include unit tests (services, Kafka consumer), `@WebMvcTest` controller tests, and `@DataJpaTest` repository tests against Liquibase seed data.
+
 ## Project layout
 
 ```text
