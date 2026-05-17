@@ -29,13 +29,6 @@ docker compose up -d
 
 Wait until Kafka (`localhost:9092`) and RocketMQ NameServer (`localhost:9876`) are up.
 
-If RocketMQ send fails with `connect to 172.x.x.x:10911 failed`, the broker was advertising its Docker-internal IP. This project sets `brokerIP1 = 127.0.0.1` in `docker/rocketmq/broker.conf` so clients on your laptop use the published port. Recreate the stack after pulling changes:
-
-```bash
-docker compose down
-docker compose up -d
-```
-
 ### 2. Run the application
 
 ```bash
@@ -43,6 +36,15 @@ mvn spring-boot:run
 ```
 
 The API listens on **http://localhost:8080**.
+
+### API documentation (Swagger UI)
+
+With the app running, open:
+
+- **Swagger UI:** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- **OpenAPI JSON:** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+Use Swagger UI to try `POST /api/v1/event-outcomes` and `GET /api/v1/bets` (Kafka and RocketMQ must be up for publish to succeed end-to-end).
 
 Optional environment overrides:
 

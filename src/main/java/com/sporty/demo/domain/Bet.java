@@ -1,5 +1,6 @@
 package com.sporty.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,6 +28,7 @@ public class Bet {
     @Column(name = "bet_id")
     private Long betId;
 
+    @JsonIgnore
     @Column(name = "user_id", insertable = false, updatable = false)
     private Long userId;
 
@@ -34,6 +36,7 @@ public class Bet {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @JsonIgnore
     @Column(name = "event_id", insertable = false, updatable = false)
     private Long eventId;
 
@@ -41,6 +44,7 @@ public class Bet {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
+    @JsonIgnore
     @Column(name = "event_market_id", insertable = false, updatable = false)
     private Long eventMarketId;
 
@@ -48,6 +52,7 @@ public class Bet {
     @JoinColumn(name = "event_market_id", nullable = false)
     private Market market;
 
+    @JsonIgnore
     @Column(name = "event_winner_id", insertable = false, updatable = false)
     private Long eventWinnerId;
 
